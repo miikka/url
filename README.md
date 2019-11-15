@@ -79,4 +79,4 @@ to passing them to `url`.  e.g.:
 Copyright © 2012-2019 [Chas Emerick](http://cemerick.com) and other contributors.
 
 Distributed under the Eclipse Public License, the same as Clojure.
-Please see the `epl-v10.html` file at the top level of this repo.
+Please see the `LICENSE` file at the top level of this repo.
