@@ -9,4 +9,5 @@
                  [pathetic "0.5.1"]]
   :aliases  {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner"]}
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-554"]
-                                     [lambdaisland/kaocha-cljs "0.0-59"]]}})
+                                     [lambdaisland/kaocha-cljs "0.0-59"]
+                                     [lambdaisland/kaocha-junit-xml "0.0-70"]]}})
