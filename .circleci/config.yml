@@ -14,7 +14,9 @@ jobs:
       - run: |
           bin/kaocha \
             --plugin junit-xml \
-            --junit-xml-file test-results/kaocha/$(date +"%s").xml
+            --junit-xml-file test-results/kaocha/$(date +"%s").xml \
+            --plugin cloverage --codecov
+      - run: bash <(curl -s https://codecov.io/bash)
       - store_test_results:
           path: test-results
       - save_cache:
