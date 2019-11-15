@@ -1,10 +1,7 @@
-(ns cemerick.test-url
-  #?(:clj (:import java.net.URL))
-  #?(:clj (:use cemerick.url
-              clojure.test))
-  #?(:cljs (:require-macros [cemerick.cljs.test :refer (are is deftest with-test run-tests testing)]))
-  #?(:cljs (:use [cemerick.url :only [url map->query query->map map->URL]]))
-  #?(:cljs (:require [cemerick.cljs.test :as t])))
+(ns cemerick.url-test
+  (:require [cemerick.url :refer [url map->query query->map map->URL]]
+            [clojure.test :refer [are is deftest]])
+  #?(:clj (:import java.net.URL)))
 
 (def url-str (comp str url))
 
