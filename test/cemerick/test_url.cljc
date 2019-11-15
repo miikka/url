@@ -1,10 +1,10 @@
 (ns cemerick.test-url
-  #+clj (:import java.net.URL)
-  #+clj (:use cemerick.url
-              clojure.test)
-  #+cljs (:require-macros [cemerick.cljs.test :refer (are is deftest with-test run-tests testing)])
-  #+cljs (:use [cemerick.url :only [url map->query query->map map->URL]])
-  #+cljs (:require [cemerick.cljs.test :as t]))
+  #?(:clj (:import java.net.URL))
+  #?(:clj (:use cemerick.url
+              clojure.test))
+  #?(:cljs (:require-macros [cemerick.cljs.test :refer (are is deftest with-test run-tests testing)]))
+  #?(:cljs (:use [cemerick.url :only [url map->query query->map map->URL]]))
+  #?(:cljs (:require [cemerick.cljs.test :as t])))
 
 (def url-str (comp str url))
 
@@ -29,7 +29,7 @@
   (is (= "http://localhost:5984/a/b/c" (url-str (url "http://localhost:5984" "a") "b" "c"))))
 
 (deftest port-normalization
-  #+clj (is (== -1 (-> "https://foo" url-str URL. .getPort)))
+  #?(:clj (is (== -1 (-> "https://foo" url-str URL. .getPort))))
   (is (= "http://localhost" (url-str "http://localhost")))
   (is (= "http://localhost" (url-str "http://localhost:80")))
   (is (= "http://localhost:8080" (url-str "http://localhost:8080")))

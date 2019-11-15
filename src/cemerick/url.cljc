@@ -1,30 +1,30 @@
 (ns cemerick.url
-  #+clj (:import (java.net URLEncoder URLDecoder))
-  #+cljs (:require-macros [clojure.core :refer [some-> some->>]])
+  #?(:clj (:import (java.net URLEncoder URLDecoder)))
+  #?(:cljs (:require-macros [clojure.core :refer [some-> some->>]]))
   (:require [pathetic.core :as pathetic]
             [clojure.string :as string]
-            #+cljs [goog.Uri :as uri]))
+            #?(:cljs [goog.Uri :as uri])))
 
-#+clj
+#?(:clj
 (defn url-encode
   [string]
-  (some-> string str (URLEncoder/encode "UTF-8") (.replace "+" "%20")))
+  (some-> string str (URLEncoder/encode "UTF-8") (.replace "+" "%20"))))
 
-#+cljs
+#?(:cljs
 (defn url-encode
   [string]
-  (some-> string str (js/encodeURIComponent) (.replace "+" "%20")))
+  (some-> string str (js/encodeURIComponent) (.replace "+" "%20"))))
 
-#+clj
+#?(:clj
 (defn url-decode
   ([string] (url-decode string "UTF-8"))
   ([string encoding]
-    (some-> string str (URLDecoder/decode encoding))))
+    (some-> string str (URLDecoder/decode encoding)))))
 
-#+cljs
+#?(:cljs
 (defn url-decode
   [string]
-  (some-> string str (js/decodeURIComponent)))
+  (some-> string str (js/decodeURIComponent))))
 
 (defn map->query
   [m]
@@ -83,7 +83,7 @@
                                        (map->query query))))
            (when anchor (str \# anchor))))))
 
-#+clj
+#?(:clj
 (defn- url*
   [url]
   (let [url (java.net.URL. url)
@@ -95,16 +95,16 @@
           (.getPort url)
           (pathetic/normalize (.getPath url))
           (query->map (.getQuery url))
-          (.getRef url))))
+          (.getRef url)))))
 
-#+cljs
+#?(:cljs
 (defn translate-default
   [s old-default new-default]
   (if (= s old-default)
     new-default
-    s))
+    s)))
 
-#+cljs
+#?(:cljs
 (defn- url*
   [url]
   (let [url (goog.Uri. url)
@@ -116,7 +116,7 @@
           (translate-default (.getPort url) nil -1)
           (pathetic/normalize (.getPath url))
           (query->map (translate-default (.getQuery url) "" nil))
-          (translate-default (.getFragment url) "" nil))))
+          (translate-default (.getFragment url) "" nil)))))
 
 (defn url
   "Returns a new URL record for the given url string(s).
