@@ -3,13 +3,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/clojure:tools-deps-1.10.1.483
+      - image: circleci/clojure:lein-2.9.1
     steps:
       - checkout
       - restore_cache:
           keys:
-            - clj-v1-{{ checksum "deps.edn" }}-{{ checksum "package-lock.json" }}
-            - clj-v1-
+            - deps-v1-{{ checksum "project.clj" }}-{{ checksum "package-lock.json" }}
+            - deps-v1-
       - run: npm install
       - run: |
           bin/kaocha \
@@ -18,10 +18,8 @@ jobs:
       - store_test_results:
           path: test-results
       - save_cache:
-          key: deps-v1-{{ checksum "deps.edn" }}-{{ checksum "package-lock.json" }}
+          key: deps-v1-{{ checksum "project.clj" }}-{{ checksum "package-lock.json" }}
           paths:
             - ~/.m2
             - ~/.cljs/.aot_cache
             - ~/node_modules
-            - ~/.gitlibs
-
