@@ -1,4 +1,4 @@
-# url [![Travis CI status](https://secure.travis-ci.org/cemerick/url.png)](http://travis-ci.org/#!/cemerick/url/builds)
+# url [![CircleCI](https://circleci.com/gh/miikka/url.svg?style=shield)](https://circleci.com/gh/miikka/url)
 
 This is a library that makes working with URLs in Clojure and ClojureScript a
 little more pleasant.
