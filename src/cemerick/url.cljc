@@ -98,7 +98,7 @@
           (.getRef url)))))
 
 #?(:cljs
-(defn translate-default
+(defn ^:no-doc translate-default
   [s old-default new-default]
   (if (= s old-default)
     new-default
