@@ -5,6 +5,7 @@
         :url "https://github.com/miikka/url"}
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :deploy-repositories [["releases" :clojars]]
   :dependencies [[pathetic "0.5.1"]]
   :aliases  {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner"]}
   :profiles {:dev {:dependencies [[org.clojure/clojure "1.10.1"]]}
