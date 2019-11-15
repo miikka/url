@@ -1,10 +1,15 @@
-# url [![CircleCI](https://circleci.com/gh/miikka/url.svg?style=shield)](https://circleci.com/gh/miikka/url)
+# url
+
+[![CircleCI](https://circleci.com/gh/miikka/url.svg?style=shield)](https://circleci.com/gh/miikka/url)
+[![cljdoc badge](https://cljdoc.org/badge/miikka/url)](https://cljdoc.org/d/miikka/url/CURRENT)
+[![Clojars Project](https://img.shields.io/clojars/v/miikka/url.svg)](https://clojars.org/miikka/url)
+[![Codecov](https://codecov.io/gh/miikka/url/branch/master/graph/badge.svg)](https://codecov.io/gh/miikka/url)
 
 This is a library that makes working with URLs in Clojure and ClojureScript a
 little more pleasant.
 
 This is an up-to-date fork of [cemerick/url](https://github.com/cemerick/url).
-It's intended to be backwards-compatible, drop-in replacement.
+It's intended to be a drop-in replacement.
 
 ## "Installation"
 
