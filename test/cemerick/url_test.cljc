@@ -10,7 +10,8 @@
        "a=1&b=2&c=3" {:a 1 :b 2 :c 3}
        "a=1&b=2&c=3" {:a "1"  :b "2" :c "3"}
        "a=1&b=2" {"a" "1" "b" "2"}
-       "a=" {"a" ""}))
+       "a=" {"a" ""}
+       "a=1&a=2" {:a [1 2]}))
 
 (deftest url-roundtripping
   (let [aurl (url "https://username:password@some.host.com/database?query=string")]

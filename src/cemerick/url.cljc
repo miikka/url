@@ -30,10 +30,11 @@
   [m]
   (some->> (seq m)
     sort                     ; sorting makes testing a lot easier :-)
-    (map (fn [[k v]]
-           [(url-encode (name k))
-            "="
-            (url-encode (str v))]))
+    (mapcat (fn [[k vs]]
+              (for [v (if (sequential? vs) vs [vs])]
+                [(url-encode (name k))
+                 "="
+                 (url-encode (str v))])))
     (interpose "&")
     flatten
     (apply str)))
