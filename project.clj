@@ -1,4 +1,4 @@
-(defproject miikka/url "0.1.2-SNAPSHOT"
+(defproject miikka/url "0.1.2"
   :description "Makes working with URLs in Clojure a little more pleasant."
   :url "http://github.com/miikka/url"
   :scm {:name "git"
