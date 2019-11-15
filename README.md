@@ -11,7 +11,7 @@ little more pleasant.
 This is an up-to-date fork of [cemerick/url](https://github.com/cemerick/url).
 It's intended to be a drop-in replacement.
 
-## "Installation"
+## Installation
 
 url is available in Clojars. Add this `:dependency` to your Leiningen
 `project.clj`:
